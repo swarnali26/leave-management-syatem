@@ -23,7 +23,7 @@ class employeecontroller extends BaseController
           $user->roleid=$req->roleid;
           $user->managerid=$req->managerid;
           $user->leavecount=$req->leavecount;
-          
+          $user->save();
           return response()->json(array("status" =>"ok"));
       }
     }
