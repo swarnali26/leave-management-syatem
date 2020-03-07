@@ -20,4 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::POST('/register','userController@register');
 Route::POST('/login','userController@login');
 Route::GET('/check','check@showdetail')->middleware('test');
-Route::GET('/leave','check@leave')->middleware('test');
+Route::GET('/view','check@view')->middleware('test');
+Route::POST('/leave','check@leave')->middleware('test');
+Route::GET('/myleave','check@myleave')->middleware('test');

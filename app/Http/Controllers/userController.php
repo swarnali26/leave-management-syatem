@@ -17,6 +17,7 @@ class userController extends BaseController
         
         
           $user = new employee;
+          
           $user->firstname=$req->input('firstname');
           $user->lastname=$req->input('lastname');
           $user->email=$req->input('email');

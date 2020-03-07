@@ -13,16 +13,21 @@ class check extends Controller
        $empid= $request->empid;
        
        $data= DB::table('employee')->where('empid',$empid);
-       $show=DB::table('leavedetail')
-       //->join('employee','employee.empid','leavedetail.empid')
-       ->get();
-    
-        
-            //$roleid=$data->value('roleid');
-            //dd($roleid);
-       return response()->json($show);
+       $show=DB::table('leavedetail')->get();
+      return response()->json($show);
 
     }
+    function view(Request $request)
+    {
+       
+       $empid= $request->empid;
+       
+       $data= DB::table('employee')->get();
+       
+     return response()->json($data);
+
+    }
+
     function leave(Request $request)
     {
         
@@ -35,8 +40,12 @@ class check extends Controller
         $data=DB::table('leavedetail')->insert(
             ['empid'=>$empid, 'reason'=>$reason,'days'=>$days,'datefrom'=>$from,'dateto'=>$to]);
 
-                
+            return response()->json("ok",200);
         
+    }
+    function myleave(Request $request)
+    {
+        $empid= $request->empid;
         $list = Leave::where('empid', '=', $empid)->get();
         return response()->json($list);
     }
